@@ -1,0 +1,1123 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RAJA STEMPEL - Jasa Pembuatan Stempel Cepat & Berkualitas</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #1a252f;
+            color: #fff;
+            padding: 20px 15px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+        }
+        .header-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+        .header-logo {
+            width: 75px;
+            height: 75px;
+            border-radius: 50%;
+            object-fit: cover;
+            background-color: #fff;
+            padding: 2px;
+            flex-shrink: 0;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.3);
+        }
+        .header-text {
+            text-align: left;
+        }
+        .header-text h1 {
+            font-size: 1.8rem;
+            letter-spacing: 1.5px;
+            color: #f39c12;
+            line-height: 1.2;
+            font-weight: 800;
+        }
+        .header-text p {
+            font-size: 0.88rem;
+            color: #ecf0f1;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: 25px auto;
+            min-height: 60vh;
+        }
+
+        .hero {
+            background-color: #ffffff;
+            padding: 25px 20px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+            margin-bottom: 25px;
+            border-left: 5px solid #f39c12;
+        }
+        .hero h2 {
+            color: #2c3e50;
+            margin-bottom: 8px;
+            font-size: 1.4rem;
+        }
+        .hero p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        .produk-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            background: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            border-top: 4px solid #f39c12;
+            text-decoration: none;
+            color: inherit;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+        .card:hover {
+            transform: translateY(-3px);
+        }
+        .card:active {
+            background-color: #fafafa;
+            transform: scale(0.98);
+        }
+        .card h3 {
+            color: #2c3e50;
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+        .card p {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 12px;
+        }
+        .fitur-list {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 15px;
+        }
+        .fitur-list li {
+            padding: 3px 0;
+            font-size: 0.85rem;
+            color: #444;
+        }
+        .fitur-list li::before {
+            content: "✓ ";
+            color: #27ae60;
+            font-weight: bold;
+        }
+        .card-btn-text {
+            font-weight: 700;
+            color: #f39c12;
+            font-size: 0.9rem;
+            margin-top: auto;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .kontak-box {
+            background-color: #2c3e50;
+            color: white;
+            padding: 35px 20px;
+            border-radius: 12px;
+            text-align: center;
+            margin-top: 40px;
+        }
+        .kontak-box h2 {
+            margin-bottom: 10px;
+            color: #f39c12;
+            font-size: 1.4rem;
+        }
+        .btn-group {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: white;
+            padding: 12px 20px;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+        .btn-whatsapp { background-color: #25d366; }
+        .btn-instagram { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); }
+        .btn-tiktok { background-color: #111111; border: 1px solid #444; }
+        .btn-facebook { background-color: #1877f2; }
+        .btn-lokasi { background-color: #34495e; }
+
+        /* Detail View */
+        .page-detail {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #f8f9fa;
+            z-index: 99999;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+            padding: 20px 15px 40px;
+        }
+
+        .page-detail:target {
+            display: block;
+        }
+
+        .detail-wrapper {
+            background: #fff;
+            border-radius: 12px;
+            padding: 20px;
+            max-width: 900px;
+            margin: 0 auto;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+
+        .btn-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #e74c3c;
+            color: white;
+            padding: 10px 18px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: 700;
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+        }
+        .btn-back:active {
+            background: #c0392b;
+        }
+
+        .detail-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 25px;
+            align-items: flex-start;
+        }
+        .detail-gallery {
+            flex: 1 1 280px;
+            max-width: 440px;
+            width: 100%;
+            background-color: #f1f3f5;
+            border-radius: 10px;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 250px;
+        }
+        .detail-gallery img {
+            width: 100%;
+            height: auto;
+            min-height: 250px;
+            max-height: 380px;
+            object-fit: cover;
+            border-radius: 10px;
+            display: block;
+        }
+        .detail-info {
+            flex: 1 1 300px;
+        }
+        .detail-info h2 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 1.4rem;
+            font-weight: 700;
+        }
+        .info-subtitle {
+            margin: 14px 0 6px;
+            font-weight: 700;
+            color: #2c3e50;
+            font-size: 0.95rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #1a252f;
+            color: #888;
+            font-size: 0.85rem;
+            margin-top: 40px;
+        }
+
+        @media (max-width: 600px) {
+            .header-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            .header-text {
+                text-align: center;
+            }
+            .detail-gallery {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 300' width='100%' height='100%'><circle cx='150' cy='150' r='145' fill='%23ffffff'/><path d='M95,65 C105,40 145,40 155,55 C160,65 145,85 130,80 C110,75 90,85 95,65 Z' fill='%23c2854f' stroke='%23111' stroke-width='3'/><rect x='100' y='65' width='75' height='90' rx='10' fill='%23ffd400' stroke='%23111' stroke-width='4'/><rect x='115' y='75' width='48' height='70' rx='5' fill='%23ffffff' stroke='%23111' stroke-width='3'/><circle cx='132' cy='95' r='5' fill='%23111'/><circle cx='145' cy='95' r='5' fill='%23111'/><path d='M133,105 C135,115 142,115 144,105 Z' fill='%23e74c3c' stroke='%23111' stroke-width='2'/><rect x='85' y='145' width='105' height='70' rx='8' fill='%23ffd400' stroke='%23111' stroke-width='4'/><path d='M115,160 C130,150 180,150 165,185 C155,205 105,205 115,160 Z' fill='%23b87333' stroke='%23111' stroke-width='3'/><circle cx='128' cy='173' r='7' fill='%23111'/><circle cx='150' cy='168' r='7' fill='%23e74c3c'/><circle cx='138' cy='188' r='6' fill='%2327ae60'/><circle cx='158' cy='188' r='6' fill='%232980b9'/><path d='M175,120 L210,95' stroke='%23111' stroke-width='4' stroke-linecap='round'/><path d='M205,95 L225,80 L230,85 L210,100 Z' fill='%23ffd400' stroke='%23111' stroke-width='2'/><path d='M235,90 C240,95 240,105 235,110 C230,105 230,95 235,90 Z' fill='%23111'/><text x='150' y='245' font-family='sans-serif' font-weight='900' font-size='22' fill='%23ffd400' stroke='%23111' stroke-width='1.2' text-anchor='middle'>RAJA STEMPEL</text><text x='150' y='265' font-family='sans-serif' font-weight='bold' font-size='11' fill='%23888888' letter-spacing='2' text-anchor='middle'>DIGITAL PRINTING</text></svg>" alt="Logo Raja Stempel" class="header-logo">
+            <div class="header-text">
+                <h1>RAJA STEMPEL</h1>
+                <p>RajaStempel | advertising percetakan & media promosi terpercaya</p>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <section class="hero">
+            <h2>Cari Stempel & Kebutuhan Percetakan Anda?</h2>
+            <p>Berbagai jenis stempel, merchandise, plakat, hingga media promosi kantor dan bisnis terlengkap.</p>
+            <p>Pilih produk yang Anda butuhkan di bawah ini!</p>
+        </section>
+
+        <div class="produk-grid">
+            <a href="#detail-1" class="card">
+                <div>
+                    <h3>CUSTOM PLAKAT AKRILIK</h3>
+                    <p>Custom akrilik eksklusif sesuai kebutuhan acara & instansi.</p>
+                    <ul class="fitur-list">
+                        <li>Berbagai bentuk & ketebalan</li>
+                        <li>Lengkap dengan boks beludru elegan</li>
+                    </ul>
+                </div>
+                <span class="card-btn-text">Lihat Detail Produk →</span>
+            </a>
+
+            <a href="#detail-2" class="card">
+                <div>
+                    <h3>CUSTOM HURUF TIMBUL</h3>
+                    <p>Huruf timbul akrilik / stainless untuk signage toko & kantor.</p>
+                    <ul class="fitur-list">
+                        <li>Ukuran fleksibel (Kecil - Besar)</li>
+                        <li>Bahan premium & tahan cuaca</li>
+                    </ul>
+                </div>
+                <span class="card-btn-text">Lihat Detail Produk →</span>
+            </a>
+
+            <a href="#detail-3" class="card">
+                <div>
+                    <h3>CUSTOM BINGKAI FOTO</h3>
+                    <p>Bingkai foto & sertifikat modern dengan berbagai ukuran.</p>
+                    <ul class="fitur-list">
+                        <li>Bahan kayu sintetis & minimalis</li>
+                        <li>Kaca presisi & rapi</li>
+                    </ul>
+                </div>
+                <span class="card-btn-text">Lihat Detail Produk →</span>
+            </a>
+
+            <a href="#detail-4" class="card">
+                <div>
+                    <h3>STEMPEL EMBOSS (TIMBUL)</h3>
+                    <p>Stempel resmi tanpa tinta untuk dokumen berharga.</p>
+                    <ul class="fitur-list">
+                        <li>Efek timbul permanen (3D)</li>
+                        <li>Sangat aman & anti pemalsuan</li>
+                    </ul>
+                </div>
+                <span class="card-btn-text">Lihat Detail Produk →</span>
+            </a>
+
+            <a href="#detail-5" class="card">
+                <div>
+                    <h3>CUSTOM NISAN KUBURAN</h3>
+                    <p>Pembuatan nisan kuburan berkualitas, rapi, dan tahan cuaca.</p>
+                    <ul class="fitur-list">
+                        <li>Bahan marmer / granit / plat awet</li>
+                        <li>Tulisan rapi, jelas, dan tahan lama</li>
+                    </ul>
+                </div>
+                <span class="card-btn-text">Lihat Detail Produk →</span>
+            </a>
+
+            <a href="#detail-6" class="card">
+                <div>
+                    <h3>CUSTOM PIALA & TROPHY</h3>
+                    <p>Piala kejuaraan dan penghargaan perlombaan/event.</p>
+                    <ul class="fitur-list">
+                        <li>Bahan marmer, plastik, atau akrilik</li>
+                        <li>Gratis desain label tulisan & logo</li>
+                    </ul>
+                </div>
+                <span class="card-btn-text">Lihat Detail Produk →</span>
+            </a>
+
+            <a href="#detail-7" class="card">
+                <div>
+                    <h3>SABLON BAJU</h3>
+                    <p>Sablon baju, totebag, dan topi semua bisa</p>
+                    <ul class="fitur-list">
+                        <li>sablon dengan desain sesuka hati</li>
+                        <li>sablon tahan lama</li>
+                    </ul>
+                </div>
+                <span class="card-btn-text">Lihat Detail Produk →</span>
+            </a>
+
+            <a href="#detail-8" class="card">
+                <div>
+                    <h3>CUSTOM MEDALI</h3>
+                    <p>membuat medali untuk perlombaan atau untuk penghargaan</p>
+                    <ul class="fitur-list">
+                        <li>medali 2 sisi</li>
+                        <li>medali akrilik</li>
+                    </ul>
+                </div>
+                <span class="card-btn-text">Lihat Detail Produk →</span>
+            </a>
+
+            <a href="#detail-9" class="card">
+                <div>
+                    <h3>NEON BOX AKRILIK</h3>
+                    <p>Penerangan signage modern dan estetik.</p>
+                    <ul class="fitur-list">
+                        <li>Lampu LED hemat daya & terang</li>
+                        <li>Bahan akrilik berkualitas outdoor</li>
+                    </ul>
+                </div>
+                <span class="card-btn-text">Lihat Detail Produk →</span>
+            </a>
+
+            <a href="#detail-10" class="card">
+                <div>
+                    <h3>PAPAN INFORMASI</h3>
+                    <p>bisa buat papan informasi untuk apa saja</p>
+                    <ul class="fitur-list">
+                        <li>bahan tahan lama</li>
+                        <li>cocok untuk bisnis, kantor, dan pribadi</li>
+                    </ul>
+                </div>
+                <span class="card-btn-text">Lihat Detail Produk →</span>
+            </a>
+
+            <a href="#detail-11" class="card">
+                <div>
+                    <h3>NAME TAG / PAPAN NAMA DADA</h3>
+                    <p>Name tag akrilik atau kuningan dengan peniti / magnet kuat.</p>
+                    <ul class="fitur-list">
+                        <li>Lapisan resin cembung mengkilap</li>
+                        <li>Tampilan resmi untuk staf & pegawai</li>
+                    </ul>
+                </div>
+                <span class="card-btn-text">Lihat Detail Produk →</span>
+            </a>
+
+            <a href="#detail-12" class="card">
+                <div>
+                    <h3>CUSTOM CETAK SPANDUK</h3>
+                    <p>custom banner untuk pribadi, kantor dan bisnis</p>
+                    <ul class="fitur-list">
+                        <li>bisa custom ukuran</li>
+                        <li>cocok di pakai untuk wisuda, promosi bisnis & event</li>
+                    </ul>
+                </div>
+                <span class="card-btn-text">Lihat Detail Produk →</span>
+            </a>
+
+            <a href="#detail-13" class="card">
+                <div>
+                    <h3>PAPAN BUNGA AKRILIK</h3>
+                    <p>untuk souvenir acara.</p>
+                    <ul class="fitur-list">
+                        <li>tampilan estetik</li>
+                        <li>bebas custom ukuran</li>
+                    </ul>
+                </div>
+                <span class="card-btn-text">Lihat Detail Produk →</span>
+            </a>
+
+            <a href="#detail-14" class="card">
+                <div>
+                    <h3>CETAK ID CARD & TALI LANYARD</h3>
+                    <p>Kartu identitas PVC standar ATM dengan tali printing.</p>
+                    <ul class="fitur-list">
+                        <li>Anti luntur & tidak mudah patah</li>
+                        <li>Tali lanyard printing full color</li>
+                    </ul>
+                </div>
+                <span class="card-btn-text">Lihat Detail Produk →</span>
+            </a>
+
+            <a href="#detail-15" class="card">
+                <div>
+                    <h3>CUSTOM MUG PRINTING</h3>
+                    <p>Mug keramik cetak foto/logo souvenir tahan panas.</p>
+                    <ul class="fitur-list">
+                        <li>Cetak sublimasi tajam dan awet</li>
+                        <li>Lengkap dengan boks satuan</li>
+                    </ul>
+                </div>
+                <span class="card-btn-text">Lihat Detail Produk →</span>
+            </a>
+
+            <a href="#detail-16" class="card">
+                <div>
+                    <h3>CETAK STIKER LABEL KEMASAN</h3>
+                    <p>Stiker label cromo & vinyl die-cut / kiss-cut untuk produk.</p>
+                    <ul class="fitur-list">
+                        <li>Tahan air (waterproof)</li>
+                        <li>Sudah terpotong rapi siap tempel</li>
+                    </ul>
+                </div>
+                <span class="card-btn-text">Lihat Detail Produk →</span>
+            </a>
+
+            <a href="#detail-17" class="card">
+                <div>
+                    <h3>CUSTOM CETAK BANNER</h3>
+                    <p>Spanduk flexy outdoor dan X-Banner / Roll-up Banner.</p>
+                    <ul class="fitur-list">
+                        <li>Bahan tebal 280g - 440g tahan cuaca</li>
+                        <li>Warna tajam tidak mudah pudar</li>
+                    </ul>
+                </div>
+                <span class="card-btn-text">Lihat Detail Produk →</span>
+            </a>
+
+            <a href="#detail-18" class="card">
+                <div>
+                    <h3>VARIASI PLAT NOMOR MOBIL & MOTOR</h3>
+                    <p>custom plat nomor keren dan estetik</p>
+                    <ul class="fitur-list">
+                        <li>bebas request bahan & model</li>
+                        <li>bahan berkualtas & pengerjaan cepat</li>
+                    </ul>
+                </div>
+                <span class="card-btn-text">Lihat Detail Produk →</span>
+            </a>
+
+            <a href="#detail-19" class="card">
+                <div>
+                    <h3>TINTA REFILL STEMPEL FLASH</h3>
+                    <p>Tinta stempel flash original berbagai pilihan warna.</p>
+                    <ul class="fitur-list">
+                        <li>Pilihan warna: Merah, Biru, Ungu, Hitam, Hijau</li>
+                        <li>Cepat menyerap dan warna cerah</li>
+                    </ul>
+                </div>
+                <span class="card-btn-text">Lihat Detail Produk →</span>
+            </a>
+
+            <a href="#detail-20" class="card">
+                <div>
+                    <h3>CUSTOM GANTUNGAN KUNCI AKRILIK</h3>
+                    <p>Gantungan kunci akrilik souvenir untuk hotel, homestay, komunitas motor/mobil, wisuda, dan event promosi.</p>
+                    <ul class="fitur-list">
+                        <li>Bentuk bebas mengikuti desain (cutting laser)</li>
+                        <li>Cocok untuk merchandise hotel, kafe, & event</li>
+                    </ul>
+                </div>
+                <span class="card-btn-text">Lihat Detail Produk →</span>
+            </a>
+        </div>
+
+        <section class="kontak-box">
+            <h2>SILAHKAN HUBUNGI KAMI</h2>
+            <p>Jika bersedia untuk memesan produk kami bisa hubungi kontak kami di bawah ini.</p>
+            <p><strong>Alamat Toko:</strong> Jl. Jendral Sudirman No. 9, Kota Ambon.</p>
+            <p><strong>Jam Operasional:</strong> Senin - Sabtu (09.00 - 18.00 WIT)</p>
+
+            <div class="btn-group">
+                <a href="https://wa.me/6282199457280?text=Halo%20Raja%20Stempel,%20saya%20ingin%20tanya%20tentang%20produk%20percetakan" target="_blank" class="btn btn-whatsapp">
+                    <i class="fab fa-whatsapp"></i> Hubungi via WhatsApp
+                </a>
+                <a href="https://www.instagram.com/rajastempelambon?igsi=cGZrODc2b3poMmc4" target="_blank" class="btn btn-instagram">
+                    <i class="fab fa-instagram"></i> Instagram
+                </a>
+                <a href="https://www.tiktok.com/@rajastempelambon?_r=1&_t=ZS-99AH9xurqX2" target="_blank" class="btn btn-tiktok">
+                    <i class="fab fa-tiktok"></i> TikTok
+                </a>
+                <a href="https://www.facebook.com/share/198XSPwFr1/?mibextid=wwXIfr" target="_blank" class="btn btn-facebook">
+                    <i class="fab fa-facebook"></i> Facebook
+                </a>
+                <a href="https://maps.google.com" target="_blank" class="btn btn-lokasi">
+                    <i class="fas fa-location-dot"></i> Lokasi Toko
+                </a>
+            </div>
+        </section>
+    </div>
+
+    <!-- ================= HALAMAN DETAIL DENGAN TAG IMG SIAP PAKAI ================= -->
+
+    <!-- DETAIL 1: CUSTOM PLAKAT AKRILIK -->
+    <div id="detail-1" class="page-detail">
+        <div class="detail-wrapper">
+            <a href="#" class="btn-back"><i class="fas fa-arrow-left"></i> Kembali</a>
+            <div class="detail-content">
+                <div class="detail-gallery">
+                    <img src="images/akrilik.jpeg" alt="Custom Plakat Akrilik" referrerpolicy="no-referrer">
+                </div>
+                <div class="detail-info">
+                    <h2>Custom Plakat Akrilik</h2>
+                    <p><em>* mm = ketebalan akrilik</em></p>
+                    <p class="info-subtitle">Ukuran Standar (15 x 20 cm):</p>
+                    <ul class="fitur-list">
+                        <li>5 mm kaki biasa + boks</li>
+                        <li>5 mm kaki kotak + boks</li>
+                        <li>8 mm + boks</li>
+                        <li>10 mm + boks</li>
+                        <li>12 mm + boks</li>
+                        <li>15 mm + boks</li>
+                        <li>20 mm + boks</li>
+                    </ul>
+                    <p class="info-subtitle">Tambahan:</p>
+                    <ul class="fitur-list">
+                        <li>2 mm mirror gold</li>
+                    </ul>
+                    <p class="info-subtitle">Warna boks plakat yang tersedia:</p>
+                    <ul class="fitur-list">
+                        <li>Biru (kain beludru)</li>
+                        <li>Merah (kain beludru)</li>
+                        <li>Hijau (kain beludru)</li>
+                    </ul>
+                    <br>
+                    <a href="https://wa.me/6282199457280?text=Halo%20Raja%20Stempel,%20saya%20ingin%20pesan%20Custom%20Plakat%20Akrilik" target="_blank" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> Pesan Produk Ini</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- DETAIL 2: CUSTOM HURUF TIMBUL -->
+    <div id="detail-2" class="page-detail">
+        <div class="detail-wrapper">
+            <a href="#" class="btn-back"><i class="fas fa-arrow-left"></i> Kembali</a>
+            <div class="detail-content">
+                <div class="detail-gallery">
+                    <img src="images/biasa.jpeg" alt="Custom Huruf Timbul" loading="lazy">
+                </div>
+                <div class="detail-info">
+                    <h2>CUSTOM HURUF TIMBUL</h2>
+                    <p><em>* mm = ketebalan dan panjang kata</em></p>
+                    <p class="info-subtitle">Pilihan Material:</p>
+                    <ul class="fitur-list">
+                        <li>Stainless steel (Mirror / Hairline)</li>
+                        <li>Galvanis / Galvanil finish cat</li>
+                        <li>Kuningan (brass) & tembaga</li>
+                        <li>Akrilik warna / akrilik susu</li>
+                    </ul>
+                    <p class="info-subtitle">Pencahayaan & Lampu LED:</p>
+                    <ul class="fitur-list">
+                        <li>Non-LED = tidak memakai lampu</li>
+                        <li>Backlight (Halo light) = cahaya lampu memantul ke dinding belakang</li>
+                        <li>Frontlight = cahaya lampu menembus ke bagian depan</li>
+                        <li>Side / Full light = cahaya ke bagian depan dan samping</li>
+                    </ul>
+                    <br>
+                    <a href="https://wa.me/6282199457280?text=Halo%20Raja%20Stempel,%20saya%20ingin%20pesan%20Custom%20Huruf%20Timbul" target="_blank" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> Pesan Produk Ini</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- DETAIL 3: CUSTOM BINGKAI FOTO -->
+    <div id="detail-3" class="page-detail">
+        <div class="detail-wrapper">
+            <a href="#" class="btn-back"><i class="fas fa-arrow-left"></i> Kembali</a>
+            <div class="detail-content">
+                <div class="detail-gallery">
+                    <img src="images/bingkai2.jpg" alt="Custom Bingkai Foto" referrerpolicy="no-referrer">
+                </div>
+                <div class="detail-info">
+                    <h2>CUSTOM BINGKAI FOTO</h2>
+                    <p><em>Sesuai dengan material yang digunakan</em></p>
+                    <p class="info-subtitle">Pilihan Ukuran:</p>
+                    <ul class="fitur-list">
+                        <li>2R (6 x 8 cm) s/d 4R (10.2 x 15.2 cm)</li>
+                        <li>5R (12.7 x 17.8 cm) s/d 8R (20.3 x 25.4 cm)</li>
+                        <li>10R (20.3 x 30.5 cm) & 10R PLUS (25.4 x 38.1 cm)</li>
+                        <li>12R, 16R, 20R, hingga 24R (50.8 x 76.2 cm)</li>
+                    </ul>
+                    <p class="info-subtitle">Pilihan Material Frame:</p>
+                    <ul class="fitur-list">
+                        <li>Kayu solid / sintetis fiber</li>
+                        <li>Kaca bening presisi / Akrilik anti pecah</li>
+                        <li>Karton tebal / matboard minimalis</li>
+                    </ul>
+                    <br>
+                    <a href="https://wa.me/6282199457280?text=Halo%20Raja%20Stempel,%20saya%20ingin%20pesan%20Custom%20Bingkai%20Foto" target="_blank" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> Pesan Produk Ini</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- DETAIL 4: STEMPEL EMBOSS -->
+    <div id="detail-4" class="page-detail">
+        <div class="detail-wrapper">
+            <a href="#" class="btn-back"><i class="fas fa-arrow-left"></i> Kembali</a>
+            <div class="detail-content">
+                <div class="detail-gallery">
+                    <img src="images/cap2.jpg" alt="Stempel Emboss" loading="lazy">
+                </div>
+                <div class="detail-info">
+                    <h2>STEMPEL EMBOSS (TIMBUL)</h2>
+                    <p>Stempel resmi tanpa tinta dengan tekanan cap timbul permanen (3D) untuk dokumen berharga, sertifikat, dan ijazah.</p>
+                    <p class="info-subtitle">Spesifikasi Produk:</p>
+                    <ul class="fitur-list">
+                        <li>Plat matras kuningan / duralium presisi tinggi</li>
+                        <li>Gagang handle logam kokoh & awet</li>
+                        <li>Anti pemalsuan & tidak bisa difotokopi biasa</li>
+                        <li>Bisa untuk kertas 70 gsm s/d 260 gsm</li>
+                    </ul>
+                    <br>
+                    <a href="https://wa.me/6282199457280?text=Halo%20Raja%20Stempel,%20saya%20ingin%20pesan%20Stempel%20Emboss" target="_blank" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> Pesan Produk Ini</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- DETAIL 5: CUSTOM NISAN KUBURAN -->
+    <div id="detail-5" class="page-detail">
+        <div class="detail-wrapper">
+            <a href="#" class="btn-back"><i class="fas fa-arrow-left"></i> Kembali</a>
+            <div class="detail-content">
+                <div class="detail-gallery">
+                    <img src="images/nisan1.jpg" alt="Custom Nisan Kuburan" loading="lazy">
+                </div>
+                <div class="detail-info">
+                    <h2>CUSTOM NISAN KUBURAN</h2>
+                    <p>Pembuatan batu nisan kuburan dengan ukiran rapi, tahan cuaca panas dan hujan, serta awet bertahun-tahun.</p>
+                    <p class="info-subtitle">Spesifikasi Material:</p>
+                    <ul class="fitur-list">
+                        <li>Batu Marmer Hitam / Granit Import</li>
+                        <li>Plat kuningan / stainless grafir</li>
+                        <li>Cat emas tahan pudar / tinta khusus luar ruangan</li>
+                        <li>Custom ukuran dan model nisan</li>
+                    </ul>
+                    <br>
+                    <a href="https://wa.me/6282199457280?text=Halo%20Raja%20Stempel,%20saya%20ingin%20pesan%20Custom%20Nisan%20Kuburan" target="_blank" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> Pesan Produk Ini</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- DETAIL 6: CUSTOM PIALA & TROPHY -->
+    <div id="detail-6" class="page-detail">
+        <div class="detail-wrapper">
+            <a href="#" class="btn-back"><i class="fas fa-arrow-left"></i> Kembali</a>
+            <div class="detail-content">
+                <div class="detail-gallery">
+                    <img src="images/piala1.jpeg" alt="Custom Piala & Trophy" loading="lazy">
+                </div>
+                <div class="detail-info">
+                    <h2>CUSTOM PIALA & TROPHY</h2>
+                    <p>Piala kejuaraan perlombaan, turnamen olahraga, dan plakat penghargaan wisuda/sekolah.</p>
+                    <p class="info-subtitle">Keunggulan & Pilihan:</p>
+                    <ul class="fitur-list">
+                        <li>Bahan plastik chrome emas, marmer, & logam</li>
+                        <li>Tersedia paket set Juara 1, 2, 3 atau satuan</li>
+                        <li>Gratis desain stiker logo & tulisan kejuaraan</li>
+                        <li>Tersedia berbagai pilihan figur kepala piala</li>
+                    </ul>
+                    <br>
+                    <a href="https://wa.me/6282199457280?text=Halo%20Raja%20Stempel,%20saya%20ingin%20pesan%20Custom%20Piala%20Trophy" target="_blank" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> Pesan Produk Ini</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- DETAIL 7: SABLON BAJU -->
+    <div id="detail-7" class="page-detail">
+        <div class="detail-wrapper">
+            <a href="#" class="btn-back"><i class="fas fa-arrow-left"></i> Kembali</a>
+            <div class="detail-content">
+                <div class="detail-gallery">
+                    <img src="images/baju1.jpg" alt="Sablon Baju" loading="lazy">
+                </div>
+                <div class="detail-info">
+                    <h2>SABLON BAJU</h2>
+                    <p>Layanan cetak sablon kaos, polo shirt, hoodie, totebag, dan topi untuk seragam komunitas, kantor, atau event.</p>
+                    <p class="info-subtitle">Pilihan Sablon & Kain:</p>
+                    <ul class="fitur-list">
+                        <li>Metode Sablon DTF full color presisi tinggi</li>
+                        <li>Bahan Cotton Combed 24s / 30s adem & nyaman</li>
+                        <li>Hasil cetak elastis, tidak mudah retak, dan awet dicuci</li>
+                        <li>Bisa pesan satuan maupun partai besar</li>
+                    </ul>
+                    <br>
+                    <a href="https://wa.me/6282199457280?text=Halo%20Raja%20Stempel,%20saya%20ingin%20pesan%20Sablon%20Baju" target="_blank" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> Pesan Produk Ini</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- DETAIL 8: CUSTOM MEDALI -->
+    <div id="detail-8" class="page-detail">
+        <div class="detail-wrapper">
+            <a href="#" class="btn-back"><i class="fas fa-arrow-left"></i> Kembali</a>
+            <div class="detail-content">
+                <div class="detail-gallery">
+                    <img src="images/medali1.jpg" alt="Custom Medali" loading="lazy">
+                </div>
+                <div class="detail-info">
+                    <h2>CUSTOM MEDALI</h2>
+                    <p>Pembuatan medali perlombaan, wisuda sekolah/kampus, atau penghargaan kejuaraan.</p>
+                    <p class="info-subtitle">Fitur & Spesifikasi:</p>
+                    <ul class="fitur-list">
+                        <li>Bahan Akrilik grafir / UV print atau Logam cor</li>
+                        <li>Tersedia varian 1 sisi & 2 sisi</li>
+                        <li>Termasuk tali lanyard medali sablon / polos</li>
+                        <li>Pilihan warna emas, perak, dan perunggu</li>
+                    </ul>
+                    <br>
+                    <a href="https://wa.me/6282199457280?text=Halo%20Raja%20Stempel,%20saya%20ingin%20pesan%20Custom%20Medali" target="_blank" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> Pesan Produk Ini</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- DETAIL 9: NEON BOX AKRILIK -->
+    <div id="detail-9" class="page-detail">
+        <div class="detail-wrapper">
+            <a href="#" class="btn-back"><i class="fas fa-arrow-left"></i> Kembali</a>
+            <div class="detail-content">
+                <div class="detail-gallery">
+                    <img src="images/neonbox1.jpeg" alt="Neon Box Akrilik" loading="lazy">
+                </div>
+                <div class="detail-info">
+                    <h2>NEON BOX AKRILIK</h2>
+                    <p>Signboard pencahayaan modern untuk meningkatkan branding toko, kafe, apotek, dan ruko bisnis Anda.</p>
+                    <p class="info-subtitle">Fitur Produk:</p>
+                    <ul class="fitur-list">
+                        <li>Model Bulat, Kotak, atau Custom shape</li>
+                        <li>Akrilik tebal + Sticker Vinyl / Print UV tahan matahari</li>
+                        <li>Lampu LED Module hemat daya & tahan air (outdoor ready)</li>
+                        <li>Lengkap dengan bracket / rangka besi siap pasang</li>
+                    </ul>
+                    <br>
+                    <a href="https://wa.me/6282199457280?text=Halo%20Raja%20Stempel,%20saya%20ingin%20pesan%20Neon%20Box%20Akrilik" target="_blank" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> Pesan Produk Ini</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- DETAIL 10: PAPAN INFORMASI -->
+    <div id="detail-10" class="page-detail">
+        <div class="detail-wrapper">
+            <a href="#" class="btn-back"><i class="fas fa-arrow-left"></i> Kembali</a>
+            <div class="detail-content">
+                <div class="detail-gallery">
+                    <img src="images/papan1.jpg" alt="Papan Informasi" loading="lazy">
+                </div>
+                <div class="detail-info">
+                    <h2>PAPAN INFORMASI</h2>
+                    <p>Papan petunjuk arah, papan K3, struktur organisasi kantor, dan papan pengumuman instansi.</p>
+                    <p class="info-subtitle">Spesifikasi Material:</p>
+                    <ul class="fitur-list">
+                        <li>Bahan Dasar Akrilik, Plat Alumunium, atau Impraboard</li>
+                        <li>Visual sticker reflective menyala atau vinyl laminasi glosy/doff</li>
+                        <li>Bisa custom ukuran kecil hingga ukuran besar kantor</li>
+                    </ul>
+                    <br>
+                    <a href="https://wa.me/6282199457280?text=Halo%20Raja%20Stempel,%20saya%20ingin%20pesan%20Papan%20Informasi" target="_blank" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> Pesan Produk Ini</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- DETAIL 11: NAME TAG / PAPAN NAMA DADA -->
+    <div id="detail-11" class="page-detail">
+        <div class="detail-wrapper">
+            <a href="#" class="btn-back"><i class="fas fa-arrow-left"></i> Kembali</a>
+            <div class="detail-content">
+                <div class="detail-gallery">
+                    <img src="images/papan2.png" alt="Name Tag / Papan Nama Dada" loading="lazy">
+                </div>
+                <div class="detail-info">
+                    <h2>NAME TAG / PAPAN NAMA DADA</h2>
+                    <p>Papan nama dada resmi untuk instansi pemerintah, pegawai bank, dokter, perawat, dan staf kantor.</p>
+                    <p class="info-subtitle">Spesifikasi & Opsi:</p>
+                    <ul class="fitur-list">
+                        <li>Bahan: Akrilik Hitam/Putih atau Kuningan Gold Mewah</li>
+                        <li>Finishing: Lapisan resin cembung bening mengkilap</li>
+                        <li>Pengait: Magnet kuat (tidak merusak baju) atau Peniti standar</li>
+                    </ul>
+                    <br>
+                    <a href="https://wa.me/6282199457280?text=Halo%20Raja%20Stempel,%20saya%20ingin%20pesan%20Name%20Tag%20Dada" target="_blank" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> Pesan Produk Ini</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- DETAIL 12: CETAK SPANDUK -->
+    <div id="detail-12" class="page-detail">
+        <div class="detail-wrapper">
+            <a href="#" class="btn-back"><i class="fas fa-arrow-left"></i> Kembali</a>
+            <div class="detail-content">
+                <div class="detail-gallery">
+                    <img src="images/banner1.jpg" alt="Banner Acara & Promosi" loading="lazy">
+                </div>
+                <div class="detail-info">
+                    <h2>BANNER ACARA & PROMOSI</h2>
+                    <p>Custom banner untuk promosi bisnis, selamatan wisuda, pameran, ataupun pengumuman acara kantor.</p>
+                    <p class="info-subtitle">Keunggulan Produk:</p>
+                    <ul class="fitur-list">
+                        <li>Bebas custom ukuran sesuai kebutuhan lokasi</li>
+                        <li>Warna cetak tajam dan tahan lama</li>
+                        <li>Lengkap dengan finishing mata ayam (lubang pojok) / kolong kayu</li>
+                    </ul>
+                    <br>
+                    <a href="https://wa.me/6282199457280?text=Halo%20Raja%20Stempel,%20saya%20ingin%20pesan%20Banner%20Promosi" target="_blank" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> Pesan Produk Ini</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- DETAIL 13: PAPAN BUNGA AKRILIK -->
+    <div id="detail-13" class="page-detail">
+        <div class="detail-wrapper">
+            <a href="#" class="btn-back"><i class="fas fa-arrow-left"></i> Kembali</a>
+            <div class="detail-content">
+                <div class="detail-gallery">
+                    <img src="images/bunga1.jpg" alt="Papan Bunga Akrilik" loading="lazy">
+                </div>
+                <div class="detail-info">
+                    <h2>PAPAN BUNGA</h2>
+                    <p>Papan ucapan selamat pernikahan, wisuda, grand opening toko modern dengan tampilan akrilik transparan estetik.</p>
+                    <p class="info-subtitle">Spesifikasi:</p>
+                    <ul class="fitur-list">
+                        <li>Akrilik bening tebal presisi</li>
+                        <li>Dihiasi bunga artificial premium tahan lama</li>
+                        <li>Standing easel kayu kokoh & elegan</li>
+                        <li>Tulisan bebas custom sesuai perayaan</li>
+                    </ul>
+                    <br>
+                    <a href="https://wa.me/6282199457280?text=Halo%20Raja%20Stempel,%20saya%20ingin%20pesan%20Papan%20Bunga%20Akrilik" target="_blank" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> Pesan Produk Ini</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- DETAIL 14: CETAK ID CARD & TALI LANYARD -->
+    <div id="detail-14" class="page-detail">
+        <div class="detail-wrapper">
+            <a href="#" class="btn-back"><i class="fas fa-arrow-left"></i> Kembali</a>
+            <div class="detail-content">
+                <div class="detail-gallery">
+                    <img src="images/idcard1.jpg" alt="Cetak ID Card & Tali Lanyard" loading="lazy">
+                </div>
+                <div class="detail-info">
+                    <h2>CETAK ID CARD & TALI LANYARD</h2>
+                    <p>Pembuatan kartu anggota, tanda pengenal pegawai, dan tali lanyard cetak identitas perusahaan.</p>
+                    <p class="info-subtitle">Spesifikasi Produk:</p>
+                    <ul class="fitur-list">
+                        <li>Kartu PVC Tebal Standar ATM (anti luntur & anti pudar)</li>
+                        <li>Tali Lanyard Tissue 2 cm Printing Full Color</li>
+                        <li>Lengkap dengan stopper & pengait kait besi kuat</li>
+                    </ul>
+                    <br>
+                    <a href="https://wa.me/6282199457280?text=Halo%20Raja%20Stempel,%20saya%20ingin%20pesan%20Cetak%20ID%20Card%20dan%20Lanyard" target="_blank" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> Pesan Produk Ini</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- DETAIL 15: CUSTOM MUG PRINTING -->
+    <div id="detail-15" class="page-detail">
+        <div class="detail-wrapper">
+            <a href="#" class="btn-back"><i class="fas fa-arrow-left"></i> Kembali</a>
+            <div class="detail-content">
+                <div class="detail-gallery">
+                    <img src="images/mug1.jpg" alt="Custom Mug Printing" loading="lazy">
+                </div>
+                <div class="detail-info">
+                    <h2>CUSTOM MUG PRINTING</h2>
+                    <p>Mug keramik premium sablon sublimasi untuk kado ulang tahun, wisuda, merchandise kantor, dan souvenir pernikahan.</p>
+                    <p class="info-subtitle">Fitur & Kelebihan:</p>
+                    <ul class="fitur-list">
+                        <li>Bahan keramik SNI tahan microwave & air panas</li>
+                        <li>Hasil cetak foto / logo tajam & tidak mengelupas</li>
+                        <li>Sudah termasuk boks kemasan satuan</li>
+                    </ul>
+                    <br>
+                    <a href="https://wa.me/6282199457280?text=Halo%20Raja%20Stempel,%20saya%20ingin%20pesan%20Custom%20Mug%20Printing" target="_blank" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> Pesan Produk Ini</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- DETAIL 16: CETAK STIKER LABEL KEMASAN -->
+    <div id="detail-16" class="page-detail">
+        <div class="detail-wrapper">
+            <a href="#" class="btn-back"><i class="fas fa-arrow-left"></i> Kembali</a>
+            <div class="detail-content">
+                <div class="detail-gallery">
+                    <img src="images/stiker1.jpg" alt="Cetak Stiker Label Kemasan" loading="lazy">
+                </div>
+                <div class="detail-info">
+                    <h2>CETAK STIKER LABEL KEMASAN</h2>
+                    <p>Stiker label produk makanan, minuman botol, kosmetik, dan segel kemasan usaha UMKM.</p>
+                    <p class="info-subtitle">Pilihan Bahan:</p>
+                    <ul class="fitur-list">
+                        <li>Stiker Vinyl (Plastik tahan air, minyak, dan freezer)</li>
+                        <li>Stiker Chromo (Kertas ekonomis untuk label kering)</li>
+                        <li>Stiker Transparan / Kraft Coklat Vintage</li>
+                        <li>Cutting Kiss-Cut (tinggal kelupas) / Die-Cut (putus satuan)</li>
+                    </ul>
+                    <br>
+                    <a href="https://wa.me/6282199457280?text=Halo%20Raja%20Stempel,%20saya%20ingin%20pesan%20Stiker%20Label%20Kemasan" target="_blank" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> Pesan Produk Ini</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- DETAIL 17: CETAK BANNER -->
+    <div id="detail-17" class="page-detail">
+        <div class="detail-wrapper">
+            <a href="#" class="btn-back"><i class="fas fa-arrow-left"></i> Kembali</a>
+            <div class="detail-content">
+                <div class="detail-gallery">
+                    <img src="images/banner2.jpg" alt="Cetak Spanduk & Banner" loading="lazy">
+                </div>
+                <div class="detail-info">
+                    <h2>CETAK SPANDUK</h2>
+                    <p>Layanan Percetakan Spanduk</p>
+                    <p class="info-subtitle">Spesifikasi Bahan:</p>
+                    <ul class="fitur-list">
+                        <li>Flexy Standar 280 gr (Paling ekonomis untuk promosi singkat)</li>
+                        <li>Flexy Medium 340 gr (Kualitas seimbang untuk spanduk toko)</li>
+                        <li>Flexy Korcin / Korea 440 gr (Tebal, serat halus, & tahan lama)</li>
+                    </ul>
+                    <p class="info-subtitle">Pilihan Model & Format:</p>
+                    <ul class="fitur-list">
+                        <li>Lubang ring besi (tinggal ikat tali)"</li>
+                        <li>Selongsong (bisa dimasukkan kayu/bambu)</li>
+                        <li>Lipat keliling presisi atau potong pas gambar</li>
+                    </ul>
+                    <p class="info-subtitle">cocok untuk</p>
+                    <ul class="fitur-list">
+                        <li>Spanduk nama toko, warung, & ruko</li>
+                        <li>Banner ucapan wisuda, pernikahan, & pameran</li>
+                        <li>Baliho promosi event, kampanye, & instansi</li>
+                    </ul>
+                    <br>
+                    <a href="https://wa.me/6282199457280?text=Halo%20Raja%20Stempel,%20saya%20ingin%20pesan%20Spanduk%20dan%20Banner" target="_blank" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> Pesan Produk Ini</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- DETAIL 18: VARIASI PLAT NOMOR -->
+    <div id="detail-18" class="page-detail">
+        <div class="detail-wrapper">
+            <a href="#" class="btn-back"><i class="fas fa-arrow-left"></i> Kembali</a>
+            <div class="detail-content">
+                <div class="detail-gallery">
+                    <img src="images/plat1.jpg" alt="Variasi Plat Nomor" loading="lazy">
+                </div>
+                <div class="detail-info">
+                    <h2>VARIASI PLAT NOMOR MOBIL & MOTOR</h2>
+                    <p>Variasi Plat nomor anda agar terlihat keren</p>
+                    <p class="info-subtitle">Spesifikasi & Pilihan:</p>
+                    <ul class="fitur-list">
+                        <li>Alat dan Bahan kuat dan tahan lama</li>
+                        <li>Berbagai macam model dan bahanya bisa di request</li>
+                    </ul>
+                    <br>
+                    <a href="https://wa.me/6282199457280?text=Halo%20Raja%20Stempel,%20saya%20ingin%20pesan%20Variasi%20Plat%20Nomor" target="_blank" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> Pesan Produk Ini</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- DETAIL 19: TINTA REFILL STEMPEL FLASH -->
+    <div id="detail-19" class="page-detail">
+        <div class="detail-wrapper">
+            <a href="#" class="btn-back"><i class="fas fa-arrow-left"></i> Kembali</a>
+            <div class="detail-content">
+                <div class="detail-gallery">
+                    <img src="images/cap2.jpg" alt="Tinta Refill Stempel Flash" loading="lazy">
+                </div>
+                <div class="detail-info">
+                    <h2>TINTA REFILL STEMPEL FLASH</h2>
+                    <p>Tinta stempel otomatis (flash stamp) kualitas premium dengan daya serap cepat dan warna pekat cerah.</p>
+                    <p class="info-subtitle">Fitur & Warna:</p>
+                    <ul class="fitur-list">
+                        <li>Ukuran botol praktis tetes 5 ml & 10 ml</li>
+                        <li>Pilihan Warna: Ungu / Violet, Biru, Merah, Hitam, Hijau, dan Oranye</li>
+                        <li>Tidak merusak karet spon stempel flash</li>
+                    </ul>
+                    <br>
+                    <a href="https://wa.me/6282199457280?text=Halo%20Raja%20Stempel,%20saya%20ingin%20pesan%20Tinta%20Refill%20Stempel" target="_blank" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> Pesan Produk Ini</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- DETAIL 20: CUSTOM GANTUNGAN KUNCI AKRILIK -->
+    <div id="detail-20" class="page-detail">
+        <div class="detail-wrapper">
+            <a href="#" class="btn-back"><i class="fas fa-arrow-left"></i> Kembali</a>
+            <div class="detail-content">
+                <div class="detail-gallery">
+                    <img src="images/kunci1.jpg" alt="Custom Gantungan Kunci Akrilik" loading="lazy">
+                </div>
+                <div class="detail-info">
+                    <h2>CUSTOM GANTUNGAN KUNCI AKRILIK</h2>
+                    <p>Gantungan kunci akrilik souvenir untuk hotel, homestay, komunitas motor/mobil, wisuda, dan event promosi.</p>
+                    <p class="info-subtitle">Spesifikasi & Kelebihan:</p>
+                    <ul class="fitur-list">
+                        <li>Bahan Akrilik bening / warna 3 mm - 4 mm</li>
+                        <li>Print UV 2 Sisi bolak-balik atau Grafir Laser presisi</li>
+                        <li>Bentuk bebas custom (bisa bulat, kotak, atau mengikuti lekuk logo)</li>
+                        <li>Gantungan ring putar anti karat</li>
+                    </ul>
+                    <br>
+                    <a href="https://wa.me/6282199457280?text=Halo%20Raja%20Stempel,%20saya%20ingin%20pesan%20Gantungan%20Kunci%20Akrilik" target="_blank" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> Pesan Produk Ini</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2026 RAJA STEMPEL. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
